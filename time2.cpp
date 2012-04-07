@@ -42,19 +42,29 @@ void RunCursorList(ifstream &file)
 	}
 }
 
+//Has error: terminate called after throwing an instance of 'Overflow'
 void RunStackAr(ifstream &file)
 {
 	string command, action;
 	int data;
 	file.ignore(256, '\n');
 
+	StackAr<int> myStackAr;
+
 	while(file>>command)
 	{
 		action = command.substr(0,1);
 		data = atoi(command.substr(1).c_str());
 
-		cout << action << endl;
-		cout << data << endl;
+		if (action == "i")
+		{
+			myStackAr.push(data);
+		}
+
+		if (action == "d")
+		{
+			myStackAr.pop();
+		}
 	}
 }
 
@@ -74,6 +84,7 @@ void RunStackLi(ifstream &file)
 	}
 }
 
+//Has error: terminate called after throwing an instance of 'Overflow'
 void RunQueueAr(ifstream &file)
 {
 	string command, action;
