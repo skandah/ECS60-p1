@@ -12,13 +12,14 @@ vector<CursorNode <int> > cursorSpace;
 
 void RunList(ifstream &file)
 {
-	string command, action, data;
+	string command, action;
+	int data;
+	file.ignore(256, '\n');
 
-	while(!file.eof())
+	while(file>>command)
 	{
-		file >> command;
 		action = command.substr(0,1);
-		data = command.substr(1);
+		data = atoi(command.substr(1).c_str());
 
 		cout << action << endl;
 		cout << data << endl;
@@ -27,13 +28,14 @@ void RunList(ifstream &file)
 
 void RunCursorList(ifstream &file)
 {
-	string command, action, data;
+	string command, action;
+	int data;
+	file.ignore(256, '\n');
 
-	while(!file.eof())
+	while(file>>command)
 	{
-		file >> command;
 		action = command.substr(0,1);
-		data = command.substr(1);
+		data = atoi(command.substr(1).c_str());
 
 		cout << action << endl;
 		cout << data << endl;
@@ -42,13 +44,14 @@ void RunCursorList(ifstream &file)
 
 void RunStackAr(ifstream &file)
 {
-	string command, action, data;
+	string command, action;
+	int data;
+	file.ignore(256, '\n');
 
-	while(!file.eof())
+	while(file>>command)
 	{
-		file >> command;
 		action = command.substr(0,1);
-		data = command.substr(1);
+		data = atoi(command.substr(1).c_str());
 
 		cout << action << endl;
 		cout << data << endl;
@@ -57,13 +60,14 @@ void RunStackAr(ifstream &file)
 
 void RunStackLi(ifstream &file)
 {
-	string command, action, data;
+	string command, action;
+	int data;
+	file.ignore(256, '\n');
 
-	while(!file.eof())
+	while(file>>command)
 	{
-		file >> command;
 		action = command.substr(0,1);
-		data = command.substr(1);
+		data = atoi(command.substr(1).c_str());
 
 		cout << action << endl;
 		cout << data << endl;
@@ -72,28 +76,39 @@ void RunStackLi(ifstream &file)
 
 void RunQueueAr(ifstream &file)
 {
-	string command, action, data;
+	string command, action;
+	int data;
+	file.ignore(256, '\n');
 
-	while(!file.eof())
+	Queue<int> myQueue;
+
+	while(file>>command)
 	{
-		file >> command;
 		action = command.substr(0,1);
-		data = command.substr(1);
+		data = atoi(command.substr(1).c_str());
 
-		cout << action << endl;
-		cout << data << endl;
+		if (action == "i")
+		{
+			myQueue.enqueue(data);
+		}
+
+		if (action == "d")
+		{
+			myQueue.dequeue();
+		}
 	}
 }
 
 void RunSkipList(ifstream &file)
 {
-	string command, action, data;
+	string command, action;
+	int data;
+	file.ignore(256, '\n');
 
-	while(!file.eof())
+	while(file>>command)
 	{
-		file >> command;
 		action = command.substr(0,1);
-		data = command.substr(1);
+		data = atoi(command.substr(1).c_str());
 
 		cout << action << endl;
 		cout << data << endl;
