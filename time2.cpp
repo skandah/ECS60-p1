@@ -42,14 +42,13 @@ void RunCursorList(ifstream &file)
 	}
 }
 
-//Has error: terminate called after throwing an instance of 'Overflow'
 void RunStackAr(ifstream &file)
 {
 	string command, action;
 	int data;
 	file.ignore(256, '\n');
 
-	StackAr<int> myStackAr;
+	StackAr<int> myStackAr(1000001);
 
 	while(file>>command)
 	{
@@ -91,7 +90,7 @@ void RunQueueAr(ifstream &file)
 	int data;
 	file.ignore(256, '\n');
 
-	Queue<int> myQueue;
+	Queue<int> myQueue(1000001);
 
 	while(file>>command)
 	{
@@ -172,6 +171,8 @@ int main()
 	       	case 6: RunSkipList(file); break;
      	}
      	cout << "CPU time: " << ct.cur_CPUTime() << endl;
+     	file.clear();
+     	file.seekg(0, ios::beg);
 	} while(choice > 0);
 
 	return 0; 
