@@ -20,6 +20,8 @@ int main()
   cout << endl; 
 cout << int1 << endl; 
   cout << int2 << endl; */
+ cin>>int1;
+ cout<<int1;
   return 0;
 }
  

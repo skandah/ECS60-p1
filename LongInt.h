@@ -6,41 +6,25 @@
 #include "QueueAr.h"
 #include "StackAr.h"
 
+using namespace std;
 
-// LongInt class
-//
-// CONSTRUCTION:
-//
-// ******************PUBLIC OPERATIONS*********************
-//
-// ******************ERRORS********************************
 
 class LongInt
 {
-private:
-	int i; 
-	StackAr <int> intStack(1000001); 
-	QueueAr <int> intQueue(1000001);
+	private:
+		StackAr <int> *intStack; 
+		Queue <int> *intQueue;
 	
 
-public:
-	
+	public:
+		LongInt();
+		~LongInt();
+		LongInt operator+(LongInt toAdd); 
 
-	LongInt()
-	{
-		//this->intStack = new StackAr<int>(1000001); 
-		//this->intQueue = new QueueAr<int>(1000001); 
-	} 
-	~LongInt()
-	{
-		delete intStack; 
-		delete intQueue; 
-	}
-	//LongInt operator+(LongInt toAdd); 
-
-	//ostream& operator>>(ostream &out, LongInt& longout);
-	//istream& operator>>(istream &in, LongInt& longin);
-	   
+		friend ostream& operator>>(ostream &out, LongInt& longout);
+		friend istream& operator>>(istream &in, LongInt& longin);	   
 };
+
+//#include "LongInt.cpp"
 
 #endif

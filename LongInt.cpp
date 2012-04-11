@@ -1,6 +1,17 @@
-using namespace std; 
+#include "LongInt.h"
 
-/*
+LongInt::LongInt()
+{
+	intStack = new StackAr<int>(1000001); 
+	intQueue = new Queue<int>(1000001); 
+} 
+
+LongInt::~LongInt()
+{
+	delete intStack; 
+	delete intQueue; 
+}
+
 LongInt LongInt::operator+(LongInt)
 {
 
@@ -10,13 +21,13 @@ LongInt LongInt::operator+(LongInt)
 
 ostream& operator>>(ostream &out, LongInt& longout)
 {
-	QueueAr<int> tempQueue = longout.intQueue;
+	Queue<int> tempQueue = *(longout.intQueue);
 	while(!tempQueue.isEmpty())
 	{
-		out<< tempQueue.pop(); 
+		out << tempQueue.dequeue(); 
 	}
 
-	return ostream; 
+	return out; 
 }   
 
 
@@ -28,9 +39,9 @@ istream& operator>>(istream &in, LongInt& longin)
 	while (in.good())
 	{
 		curr = currChar-48; 
-		longin.intStack.push(curr); 
+		longin.intStack->push(curr); 
 		currChar = in.get(); 
 	}
 
 	return in; 
-}*/
+}
