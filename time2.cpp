@@ -16,13 +16,22 @@ void RunList(ifstream &file)
 	int data;
 	file.ignore(256, '\n');
 
+	List<int> myList;
+	ListItr<int> myItr = myList.zeroth();
 	while(file>>command)
 	{
 		action = command.substr(0,1);
 		data = atoi(command.substr(1).c_str());
 
-		cout << action << endl;
-		cout << data << endl;
+		if (action == "i")
+		{
+			myList.insert(data, myItr);
+		}
+
+		if (action == "d")
+		{
+			myList.remove(data);
+		}
 	}
 }
 
@@ -32,13 +41,22 @@ void RunCursorList(ifstream &file)
 	int data;
 	file.ignore(256, '\n');
 
+	CursorList<int> myCursorList(cursorSpace); 
+	CursorListItr<int> myCursorItr = myCursorList.zeroth();
 	while(file>>command)
 	{
 		action = command.substr(0,1);
 		data = atoi(command.substr(1).c_str());
 
-		cout << action << endl;
-		cout << data << endl;
+		if (action == "i")
+		{
+			myCursorList.insert(data, myCursorItr);
+		}
+
+		if (action == "d")
+		{
+			myCursorList.remove(data);
+		}
 	}
 }
 
@@ -73,13 +91,24 @@ void RunStackLi(ifstream &file)
 	int data;
 	file.ignore(256, '\n');
 
+	StackLi<int> myStackLi;
+
 	while(file>>command)
 	{
 		action = command.substr(0,1);
 		data = atoi(command.substr(1).c_str());
+		
+		if (action == "i")
+		{
+			myStackLi.push(data);
+		}
 
-		cout << action << endl;
-		cout << data << endl;
+		if (action == "d")
+		{
+			myStackLi.pop();
+		}
+
+		
 	}
 }
 
@@ -114,14 +143,26 @@ void RunSkipList(ifstream &file)
 	string command, action;
 	int data;
 	file.ignore(256, '\n');
+	
+	file >> command;
+	action = command.substr(0,1);
+	data = atoi(command.substr(1).c_str());
 
+	SkipList<int> mySkip(data, 1000001);
 	while(file>>command)
 	{
 		action = command.substr(0,1);
 		data = atoi(command.substr(1).c_str());
+		if (action == "i")
+		{
+			mySkip.insert(data);
+		}
 
-		cout << action << endl;
-		cout << data << endl;
+		if (action == "d")
+		{
+			mySkip.deleteNode(data);
+		}
+		
 	}
 }
 
