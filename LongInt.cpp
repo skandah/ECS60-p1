@@ -19,7 +19,7 @@ LongInt LongInt::operator+(LongInt)
 
 }
 
-ostream& operator>>(ostream &out, LongInt& longout)
+ostream& operator<<(ostream &out, LongInt& longout)
 {
 	Queue<int> tempQueue = *(longout.intQueue);
 	while(!tempQueue.isEmpty())
@@ -33,15 +33,16 @@ ostream& operator>>(ostream &out, LongInt& longout)
 
 istream& operator>>(istream &in, LongInt& longin)
 {
-	char currChar;
-	int curr;  
-	currChar = in.get();  
-	while (in.good())
+	//char currChar;
+	char curr;  
+	in.width(1); 
+	curr = cin.get();
+	while (curr!='\n')
 	{
-		curr = currChar-48; 
-		longin.intStack->push(curr); 
-		currChar = in.get(); 
+		curr -= 48;
+		longin.intStack->push(curr);
+		longin.intQueue->enqueue(curr);
+		curr = cin.get();
 	}
-
 	return in; 
 }
