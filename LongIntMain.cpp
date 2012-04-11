@@ -6,7 +6,7 @@ using namespace std;
 int main()
 {
   LongInt int1, int2, int3;
-
+/*
   cout << "Please enter first long integer >> ";
   cin >> int1;
   cout << "Please enter second long integer >> ";
@@ -15,7 +15,10 @@ int main()
   int3 = int1 + int2; 
   cout<<"check";
   cout << int3 << endl;
+*/
 
+	cin>>int1;
+	cout<<int1<<endl;
   return 0;
 }
  

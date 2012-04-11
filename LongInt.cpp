@@ -53,8 +53,9 @@ istream& operator>>(istream &in, LongInt& longin)
 	while (curr!='\n')
 	{
 		curr -= 48;
-		longin.intStack->push(curr);
-		longin.intQueue->enqueue(curr);
+		//longin.intStack->push(curr);
+		//longin.intQueue->enqueue(curr);
+		longin.addDigit(curr);
 		curr = cin.get();
 	}
 	return in; 
