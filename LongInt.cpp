@@ -12,16 +12,25 @@ LongInt::~LongInt()
 	delete intQueue; 
 }
 
+void LongInt::addDigit(int digit)
+{
+	(*intStack).push(digit);
+	(*intQueue).enqueue(digit);
+}
+
 LongInt LongInt::operator+(LongInt int2)
 {
 	StackAr<int> stack1 = *(this->intStack);
 	StackAr<int> stack2 = *(int2.intStack);
 	LongInt newInt;
-	newInt.intStack = &stack1;
-	newInt.intQueue = &queue1;
+	int curr;
+	while(!stack1.isEmpty())
+	{
+		curr = stack1.top();
+		stack1.pop();
+		newInt.addDigit(curr);
+	}
 	return newInt;
-
-
 }
 
 ostream& operator<<(ostream &out, LongInt& longout)

@@ -21,6 +21,7 @@ class LongInt
 		LongInt();
 		~LongInt();
 		LongInt operator+(LongInt toAdd); 
+		void addDigit(int);
 
 		friend ostream& operator<<(ostream &out, LongInt& longout);
 		friend istream& operator>>(istream &in, LongInt& longin);	   

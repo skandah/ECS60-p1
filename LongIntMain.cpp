@@ -13,6 +13,7 @@ int main()
   cin >> int2;
 
   int3 = int1 + int2; 
+  cout<<"check";
   cout << int3 << endl;
 
   return 0;
