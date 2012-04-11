@@ -12,9 +12,14 @@ LongInt::~LongInt()
 	delete intQueue; 
 }
 
-LongInt LongInt::operator+(LongInt)
+LongInt LongInt::operator+(LongInt int2)
 {
-
+	StackAr<int> stack1 = *(this->intStack);
+	StackAr<int> stack2 = *(int2.intStack);
+	LongInt newInt;
+	newInt.intStack = &stack1;
+	newInt.intQueue = &queue1;
+	return newInt;
 
 
 }
@@ -33,7 +38,6 @@ ostream& operator<<(ostream &out, LongInt& longout)
 
 istream& operator>>(istream &in, LongInt& longin)
 {
-	//char currChar;
 	char curr;  
 	in.width(1); 
 	curr = cin.get();

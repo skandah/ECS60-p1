@@ -26,6 +26,4 @@ class LongInt
 		friend istream& operator>>(istream &in, LongInt& longin);	   
 };
 
-//#include "LongInt.cpp"
-
 #endif
