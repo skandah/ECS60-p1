@@ -13,14 +13,15 @@ using namespace std;
 class LongInt
 {
 	private:
-		StackAr <int> *intStack; 
-		Queue <int> *intQueue;
+		StackAr <int> intStack; 
+		Queue <int> intQueue;
 	
 
 	public:
 		LongInt();
 		~LongInt();
-		LongInt operator+(LongInt toAdd); 
+		LongInt operator+(LongInt& toAdd); 
+		//LongInt& operator=(LongInt toAssign);
 		void addDigit(int);
 
 		friend ostream& operator<<(ostream &out, LongInt& longout);
